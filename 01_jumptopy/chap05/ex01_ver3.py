@@ -34,12 +34,9 @@ if open_sel=='y':
     restaurant.open_restaurant()
     while True:
         number=input("어서오세요.몇명이십니까?(초기화:0입력, 종료:-1, 누적고객 확인:p) : ")
-        if number=='0':
-            restaurant.increment_number_served(number)
-        elif number=='-1':
-            break
-        elif number=='p':
-            restaurant.check_customer_number()
+        if number=='0':  restaurant.increment_number_served(number)
+        elif number=='-1': break
+        elif number=='p':  restaurant.check_customer_number()
         else :
             restaurant.reset_number_served(number)
             restaurant.increment_number_served(number)

@@ -1,12 +1,11 @@
 class Restaurant:
     todays_customer=0
+    f = open("고객서빙현황로그.txt", 'w')
     def __init__(self,name,type):
         self.restaurant_name=name
         self.cuisine_type=type
         f = open("고객서빙현황로그.txt", 'r')
-        number_served = int(f.read())
-        f.close()
-        f = open("고객서빙현황로그.txt", 'w')
+        self.number_served = int(f.read())
 
     def describe_restautant(self):
         print("저희 레스토랑 명칭은 '%s'이고 %s 전문점 입니다."%(self.restaurant_name,self.cuisine_type))
@@ -29,8 +28,8 @@ class Restaurant:
 
     def __del__(self):
         print("%s 레스토랑 문닫습니다."%self.restaurant_name)
-        self.number_served+=self.todays_customer
-        self.f.write(str(self.number_served))
+        total =str(self.number_served +self.todays_customer)
+        self.f.write(total)
         self.f.close()
 
 name, type=input("레스토랑 이름과 요리 종류를 선택하세요.(공백으로 구분)").split()
