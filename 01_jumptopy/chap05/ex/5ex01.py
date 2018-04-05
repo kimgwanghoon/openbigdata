@@ -1,0 +1,6 @@
+f=open("learning_python.txt","r")
+f_change=f.read()
+f_change=f_change.replace("python","C")
+f=open("learning_python.txt","w")
+f.write(f_change)
+f.close()
